@@ -229,4 +229,179 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Built with ❤️ and modern web technologies**
 
-*This portfolio represents a $20,000 premium client project with industry-leading design and functionality.* 
+*This portfolio represents a $20,000 premium client project with industry-leading design and functionality.*
+
+## 🔧 Customization Guide
+
+### 1. Social Media Links
+
+Update the following placeholders in all HTML files:
+
+#### GitHub Profile
+```html
+<!-- Replace with your GitHub username -->
+<a href="https://github.com/nishirajmane" target="_blank" class="social-link">
+```
+
+#### LinkedIn Profile
+```html
+<!-- Replace with your LinkedIn profile URL -->
+<a href="https://linkedin.com/in/nishirajmane" target="_blank" class="social-link">
+```
+
+#### Twitter Profile
+```html
+<!-- Replace with your Twitter handle -->
+<a href="https://twitter.com/nishirajmane" target="_blank" class="social-link">
+```
+
+#### Discord Server (Optional)
+```html
+<!-- Replace with your Discord server invite -->
+<a href="https://discord.gg/nishirajmane" target="_blank" class="social-card">
+```
+
+### 2. Project Links
+
+Update project demo and source code links in `projects.html`:
+
+#### VisEmotion Project
+```html
+<a href="https://visemotion-demo.vercel.app" target="_blank" class="project-link-btn">
+<a href="https://github.com/nishirajmane/visemotion" target="_blank" class="project-link-btn">
+```
+
+#### PrepBot Project
+```html
+<a href="https://prepbot-demo.vercel.app" target="_blank" class="project-link-btn">
+<a href="https://github.com/nishirajmane/prepbot" target="_blank" class="project-link-btn">
+```
+
+#### Hospital API Automation
+```html
+<a href="https://hospital-api-demo.vercel.app" target="_blank" class="project-link-btn">
+<a href="https://github.com/nishirajmane/hospital-api-automation" target="_blank" class="project-link-btn">
+```
+
+#### Web Automation CI/CD
+```html
+<a href="https://web-automation-demo.vercel.app" target="_blank" class="project-link-btn">
+<a href="https://github.com/nishirajmane/web-automation-cicd" target="_blank" class="project-link-btn">
+```
+
+#### PlayBot Project
+```html
+<a href="https://playbot-demo.vercel.app" target="_blank" class="project-link-btn">
+<a href="https://github.com/nishirajmane/playbot" target="_blank" class="project-link-btn">
+```
+
+#### Personal Website
+```html
+<a href="https://nishirajmane.netlify.app" target="_blank" class="project-link-btn">
+<a href="https://github.com/nishirajmane/NishirajAIEngineer" target="_blank" class="project-link-btn">
+```
+
+### 3. Formspree Integration
+
+To enable the contact form functionality:
+
+1. **Sign up for Formspree**: Go to [formspree.io](https://formspree.io) and create an account
+2. **Create a new form**: Get your unique form ID
+3. **Update the form action**: Replace `YOUR_FORMSPREE_ID` in the following files:
+
+#### index.html
+```html
+<form id="contact-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" class="space-y-6">
+```
+
+#### contact.html
+```html
+<form id="contact-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" class="space-y-6">
+```
+
+### 4. Personal Information
+
+Update personal details in the HTML files:
+
+- **Name**: Replace "Nishiraj Mane" with your name
+- **Email**: Update email addresses
+- **Location**: Update location information
+- **About Section**: Customize the about text to reflect your experience
+- **Skills**: Modify the skills and technologies listed
+- **Projects**: Update project descriptions and technologies used
+
+## 🎨 Styling Customization
+
+### Colors
+The primary color scheme uses blue and purple gradients. To customize:
+
+1. **Primary Blue**: `#60A5FA` (blue-400)
+2. **Secondary Purple**: `#A855F7` (purple-500)
+3. **Background**: `#000000` (black)
+4. **Text**: `#FFFFFF` (white) and `#9CA3AF` (gray-300)
+
+### Fonts
+- **Headings**: Orbitron (futuristic, tech-focused)
+- **Body**: Poppins (clean, readable)
+
+## 🚀 Deployment
+
+### Netlify (Recommended)
+1. Push your code to GitHub
+2. Connect your repository to Netlify
+3. Deploy automatically
+
+### Vercel
+1. Install Vercel CLI: `npm i -g vercel`
+2. Run: `vercel` in your project directory
+
+### GitHub Pages
+1. Enable GitHub Pages in your repository settings
+2. Select the main branch as source
+
+## 📧 Contact Form Setup
+
+The contact form is integrated with Formspree for easy email management:
+
+1. **Formspree Account**: Create an account at [formspree.io](https://formspree.io)
+2. **Form Creation**: Create a new form to get your unique ID
+3. **Integration**: Replace `YOUR_FORMSPREE_ID` in the form action URLs
+4. **Testing**: Test the form to ensure emails are received
+
+## 🔍 SEO Optimization
+
+The website includes:
+- Meta descriptions for each page
+- Open Graph tags for social sharing
+- Semantic HTML structure
+- Optimized images and assets
+- Fast loading times
+
+## 📱 Mobile Responsiveness
+
+The website is fully responsive and optimized for:
+- Desktop (1200px+)
+- Tablet (768px - 1199px)
+- Mobile (320px - 767px)
+
+## 🛠️ Technologies Used
+
+- **HTML5**: Semantic markup
+- **CSS3**: Modern styling with Tailwind CSS
+- **JavaScript**: Interactive functionality
+- **Three.js**: 3D background effects
+- **GSAP**: Smooth animations
+- **AOS**: Scroll animations
+- **Lucide Icons**: Modern icon set
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🤝 Contributing
+
+Feel free to fork this project and customize it for your own portfolio. If you find any bugs or have suggestions, please open an issue or submit a pull request.
+
+---
+
+**Built with ❤️ by Nishiraj Mane** 
