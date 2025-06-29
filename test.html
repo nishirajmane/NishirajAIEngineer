@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Test Page</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        .test-section {
+            padding: 2rem;
+            margin: 1rem 0;
+            border: 2px solid #0d6efd;
+            border-radius: 8px;
+        }
+
+        .test-title {
+            color: #0d6efd;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .status {
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            margin: 0.5rem 0;
+            font-weight: 500;
+        }
+
+        .status.success {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+            border: 1px solid #10b981;
+        }
+
+        .status.error {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+            border: 1px solid #ef4444;
+        }
+
+        .status.warning {
+            background: rgba(245, 158, 11, 0.2);
+            color: #f59e0b;
+            border: 1px solid #f59e0b;
+        }
+    </style>
+</head>
+
+<body class="bg-black text-white">
+    <div class="container mx-auto px-6 py-8">
+        <h1 class="text-4xl font-orbitron font-bold text-center mb-8 text-blue-400">
+            Portfolio Test Page
+        </h1>
+
+        <!-- 3D Canvas Test -->
+        <div class="test-section">
+            <div class="test-title">3D Canvas Test</div>
+            <div id="hero-canvas"
+                style="height: 300px; border: 1px solid #0d6efd; border-radius: 8px; position: relative;">
+                <div class="status warning">Loading 3D Canvas...</div>
+            </div>
+        </div>
+
+        <!-- Project Cards Test -->
+        <div class="test-section">
+            <div class="test-title">Project Cards Test</div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Test Project 1 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-image-placeholder">
+                            <img src="https://via.placeholder.com/400x250/0d6efd/ffffff?text=Test+Project+1"
+                                alt="Test Project 1" class="w-full h-full object-cover rounded-t-lg">
+                            <div class="project-overlay">
+                                <i data-lucide="brain" class="w-16 h-16 text-blue-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="text-xl font-semibold mb-2">Test Project 1</h3>
+                        <p class="text-gray-300 mb-4">This is a test project to verify the card rendering.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag">Test</span>
+                            <span class="tech-tag">Demo</span>
+                        </div>
+                        <a href="#" class="project-link">View Details</a>
+                    </div>
+                </div>
+
+                <!-- Test Project 2 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-image-placeholder">
+                            <img src="https://via.placeholder.com/400x250/6f42c1/ffffff?text=Test+Project+2"
+                                alt="Test Project 2" class="w-full h-full object-cover rounded-t-lg">
+                            <div class="project-overlay">
+                                <i data-lucide="bot" class="w-16 h-16 text-blue-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="text-xl font-semibold mb-2">Test Project 2</h3>
+                        <p class="text-gray-300 mb-4">Another test project to verify styling consistency.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag">Test</span>
+                            <span class="tech-tag">Demo</span>
+                        </div>
+                        <a href="#" class="project-link">View Details</a>
+                    </div>
+                </div>
+
+                <!-- Test Project 3 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-image-placeholder">
+                            <img src="https://via.placeholder.com/400x250/22c55e/ffffff?text=Test+Project+3"
+                                alt="Test Project 3" class="w-full h-full object-cover rounded-t-lg">
+                            <div class="project-overlay">
+                                <i data-lucide="layers" class="w-16 h-16 text-blue-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="text-xl font-semibold mb-2">Test Project 3</h3>
+                        <p class="text-gray-300 mb-4">Third test project to ensure all cards render properly.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag">Test</span>
+                            <span class="tech-tag">Demo</span>
+                        </div>
+                        <a href="#" class="project-link">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Glassmorphism Test -->
+        <div class="test-section">
+            <div class="test-title">Glassmorphism Test</div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="glass-card">
+                    <h3 class="text-xl font-semibold mb-4 text-blue-400">Glass Card 1</h3>
+                    <p class="text-gray-300">This is a test of the glassmorphism effect with backdrop blur and
+                        transparency.</p>
+                </div>
+                <div class="glass-card">
+                    <h3 class="text-xl font-semibold mb-4 text-blue-400">Glass Card 2</h3>
+                    <p class="text-gray-300">Another glass card to verify the styling is consistent across multiple
+                        elements.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Skill Cards Test -->
+        <div class="test-section">
+            <div class="test-title">Skill Cards Test</div>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                <div class="skill-card">
+                    <i data-lucide="code" class="w-12 h-12 text-blue-400"></i>
+                    <h3 class="text-sm font-semibold mt-2">Python</h3>
+                </div>
+                <div class="skill-card">
+                    <i data-lucide="coffee" class="w-12 h-12 text-blue-400"></i>
+                    <h3 class="text-sm font-semibold mt-2">Java</h3>
+                </div>
+                <div class="skill-card">
+                    <i data-lucide="database" class="w-12 h-12 text-blue-400"></i>
+                    <h3 class="text-sm font-semibold mt-2">Spring Boot</h3>
+                </div>
+                <div class="skill-card">
+                    <i data-lucide="layout" class="w-12 h-12 text-blue-400"></i>
+                    <h3 class="text-sm font-semibold mt-2">React</h3>
+                </div>
+                <div class="skill-card">
+                    <i data-lucide="palette" class="w-12 h-12 text-blue-400"></i>
+                    <h3 class="text-sm font-semibold mt-2">Tailwind CSS</h3>
+                </div>
+                <div class="skill-card">
+                    <i data-lucide="zap" class="w-12 h-12 text-blue-400"></i>
+                    <h3 class="text-sm font-semibold mt-2">JavaScript</h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- Status Report -->
+        <div class="test-section">
+            <div class="test-title">Status Report</div>
+            <div id="status-report">
+                <div class="status warning">Running tests...</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Test script
+        document.addEventListener('DOMContentLoaded', function () {
+            console.log('Test page loaded');
+
+            // Initialize icons
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+                console.log('Icons initialized');
+            } else {
+                console.warn('Lucide icons not loaded');
+            }
+
+            // Test 3D canvas
+            const canvasContainer = document.getElementById('hero-canvas');
+            if (canvasContainer) {
+                if (typeof THREE !== 'undefined') {
+                    try {
+                        // Simple 3D test
+                        const scene = new THREE.Scene();
+                        const camera = new THREE.PerspectiveCamera(75, canvasContainer.offsetWidth / canvasContainer.offsetHeight, 0.1, 1000);
+                        const renderer = new THREE.WebGLRenderer({ alpha: true });
+
+                        renderer.setSize(canvasContainer.offsetWidth, canvasContainer.offsetHeight);
+                        canvasContainer.innerHTML = '';
+                        canvasContainer.appendChild(renderer.domElement);
+
+                        const geometry = new THREE.BoxGeometry();
+                        const material = new THREE.MeshBasicMaterial({ color: 0x0d6efd, wireframe: true });
+                        const cube = new THREE.Mesh(geometry, material);
+                        scene.add(cube);
+
+                        camera.position.z = 5;
+
+                        function animate() {
+                            requestAnimationFrame(animate);
+                            cube.rotation.x += 0.01;
+                            cube.rotation.y += 0.01;
+                            renderer.render(scene, camera);
+                        }
+
+                        animate();
+
+                        updateStatus('3D Canvas', 'success', '3D canvas rendered successfully');
+                    } catch (error) {
+                        updateStatus('3D Canvas', 'error', '3D canvas failed: ' + error.message);
+                    }
+                } else {
+                    updateStatus('3D Canvas', 'warning', 'Three.js not loaded');
+                }
+            }
+
+            // Test project cards
+            const projectCards = document.querySelectorAll('.project-card');
+            if (projectCards.length > 0) {
+                updateStatus('Project Cards', 'success', `${projectCards.length} project cards rendered`);
+            } else {
+                updateStatus('Project Cards', 'error', 'No project cards found');
+            }
+
+            // Test glass cards
+            const glassCards = document.querySelectorAll('.glass-card');
+            if (glassCards.length > 0) {
+                updateStatus('Glass Cards', 'success', `${glassCards.length} glass cards rendered`);
+            } else {
+                updateStatus('Glass Cards', 'error', 'No glass cards found');
+            }
+
+            // Test skill cards
+            const skillCards = document.querySelectorAll('.skill-card');
+            if (skillCards.length > 0) {
+                updateStatus('Skill Cards', 'success', `${skillCards.length} skill cards rendered`);
+            } else {
+                updateStatus('Skill Cards', 'error', 'No skill cards found');
+            }
+
+            // Test images
+            const images = document.querySelectorAll('img');
+            let loadedImages = 0;
+            images.forEach(img => {
+                if (img.complete) {
+                    loadedImages++;
+                } else {
+                    img.addEventListener('load', () => {
+                        loadedImages++;
+                        if (loadedImages === images.length) {
+                            updateStatus('Images', 'success', `${loadedImages} images loaded successfully`);
+                        }
+                    });
+                    img.addEventListener('error', () => {
+                        updateStatus('Images', 'error', 'Some images failed to load');
+                    });
+                }
+            });
+
+            if (loadedImages === images.length) {
+                updateStatus('Images', 'success', `${loadedImages} images loaded successfully`);
+            }
+        });
+
+        function updateStatus(component, type, message) {
+            const statusReport = document.getElementById('status-report');
+            const statusDiv = document.createElement('div');
+            statusDiv.className = `status ${type}`;
+            statusDiv.textContent = `${component}: ${message}`;
+            statusReport.appendChild(statusDiv);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Nishiraj Mane | Full Stack AI Developer</title>
+    <meta name="description"
+        content="Explore Nishiraj Mane's portfolio of AI projects, automation frameworks, and full-stack applications.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-black text-white overflow-x-hidden">
+    <!-- Navigation -->
+    <nav
+        class="fixed top-0 w-full z-40 transition-all duration-500 bg-black bg-opacity-90 border-b border-blue-500 border-opacity-20">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="text-2xl font-orbitron font-bold text-blue-400">
+                    NM
+                </a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html#home" class="nav-link">Home</a>
+                    <a href="index.html#about" class="nav-link">About</a>
+                    <a href="projects.html" class="nav-link text-blue-400">Projects</a>
+                    <a href="index.html#skills" class="nav-link">Skills</a>
+                    <a href="index.html#contact" class="nav-link">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-white">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="md:hidden fixed inset-0 bg-black bg-opacity-95 z-30 transform translate-x-full transition-transform duration-300">
+            <div class="flex flex-col items-center justify-center h-full space-y-8">
+                <a href="index.html#home" class="mobile-nav-link">Home</a>
+                <a href="index.html#about" class="mobile-nav-link">About</a>
+                <a href="projects.html" class="mobile-nav-link text-blue-400">Projects</a>
+                <a href="index.html#skills" class="mobile-nav-link">Skills</a>
+                <a href="index.html#contact" class="mobile-nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 relative">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-5xl md:text-6xl font-orbitron font-bold mb-6" data-aos="fade-up">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
+                    My Projects
+                </span>
+            </h1>
+            <p class="text-xl text-gray-300 mb-12 font-poppins max-w-3xl mx-auto" data-aos="fade-up"
+                data-aos-delay="200">
+                Explore my portfolio of AI-powered applications, automation frameworks, and full-stack solutions that
+                drive business innovation.
+            </p>
+
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap justify-center gap-4 mb-16" data-aos="fade-up" data-aos-delay="400">
+                <button class="filter-btn active" data-filter="all">
+                    <i data-lucide="grid" class="w-5 h-5 mr-2"></i>
+                    All Projects
+                </button>
+                <button class="filter-btn" data-filter="ai">
+                    <i data-lucide="brain" class="w-5 h-5 mr-2"></i>
+                    AI Projects
+                </button>
+                <button class="filter-btn" data-filter="automation">
+                    <i data-lucide="bot" class="w-5 h-5 mr-2"></i>
+                    Automation
+                </button>
+                <button class="filter-btn" data-filter="fullstack">
+                    <i data-lucide="layers" class="w-5 h-5 mr-2"></i>
+                    Full Stack
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="pb-20">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+                <!-- AI Project 1 -->
+                <div class="project-card-detailed" data-category="ai" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-image-detailed">
+                        <!-- Image Placeholder - Replace with actual project image -->
+                        <img src="https://nishirajmane.netlify.app/assets/selenium.jpg" alt="AI Analytics Platform"
+                            class="w-full h-full object-cover">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link-btn">
+                                    <i data-lucide="external-link" class="w-5 h-5"></i>
+                                    Live Demo
+                                </a>
+                                <a href="#" class="project-link-btn">
+                                    <i data-lucide="github" class="w-5 h-5"></i>
+                                    Source Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content-detailed">
+                        <h3 class="text-xl font-semibold mb-3">VisEmotion</h3>
+                        <p class="text-gray-300 mb-4">VisEmotion is a comprehensive visual testing system that analyzes
+                            website designs for their emotional impact.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Playwright</span>
+                            <span class="tech-tag">ColorThief</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <span class="stat-number">78%</span>
+                                <span class="stat-label">Accuracy</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">10M+</span>
+                                <span class="stat-label">Records</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Project 2 -->
+                <div class="project-card-detailed" data-category="ai" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-image-detailed">
+                        <!-- Image Placeholder - Replace with actual project image -->
+                        <img src="https://i.pinimg.com/736x/fb/83/b3/fb83b36e9297a6fe47647ab9426643a1.jpg"
+                            alt="Intelligent Chatbot" class="w-full h-full object-cover">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link-btn">
+                                    <i data-lucide="external-link" class="w-5 h-5"></i>
+                                    Live Demo
+                                </a>
+                                <a href="#" class="project-link-btn">
+                                    <i data-lucide="github" class="w-5 h-5"></i>
+                                    Source Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content-detailed">
+                        <h3 class="text-xl font-semibold mb-3">PrepBot</h3>
+                        <p class="text-gray-300 mb-4">PrepBot is an AI-powered mock interview assistant that simulates
+                            real DSA, system design, and ML interviews.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Huggingface</span>
+                            <span class="tech-tag">Langchain</span>
+                            <span class="tech-tag">Tensorflow</span>
+                        </div>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <span class="stat-number">95%</span>
+                                <span class="stat-label">Satisfaction</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">Offline</span>
+                                <span class="stat-label">Availability</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Automation Project 1 -->
+                <div class="project-card-detailed" data-category="automation" data-aos="fade-up" data-aos-delay="300">
+                    <div class="project-image-detailed">
+                        <!-- Image Placeholder - Replace with actual project image -->
+                        <img src="https://nishirajmane.netlify.app/assets/postman.jpg" alt="Test Automation Framework"
+                            class="w-full h-full object-cover">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link-btn">
+                                    <i data-lucide="external-link" class="w-5 h-5"></i>
+                                    Live Demo
+                                </a>
+                                <a href="#" class="project-link-btn">
+                                    <i data-lucide="github" class="w-5 h-5"></i>
+                                    Source Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content-detailed">
+                        <h3 class="text-xl font-semibold mb-3">Hospital API Automation</h3>
+                        <p class="text-gray-300 mb-4">Postman + Newman test suite with full CRUD, schema validation, and
+                            CI integration for hospital system APIs..</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">Selenium</span>
+                            <span class="tech-tag">TestNG</span>
+                            <span class="tech-tag">Postman</span>
+                        </div>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <span class="stat-number">80%</span>
+                                <span class="stat-label">Faster</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">100+</span>
+                                <span class="stat-label">Tests</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Automation Project 2 -->
+                <div class="project-card-detailed" data-category="automation" data-aos="fade-up" data-aos-delay="400">
+                    <div class="project-image-detailed">
+                        <!-- Image Placeholder - Replace with actual project image -->
+                        <img src="https://i.pinimg.com/736x/47/50/b0/4750b0ddf37f61f38187cf66272170e5.jpg"
+                            alt="CI/CD Pipeline" class="w-full h-full object-cover">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link-btn">
+                                    <i data-lucide="external-link" class="w-5 h-5"></i>
+                                    Live Demo
+                                </a>
+                                <a href="#" class="project-link-btn">
+                                    <i data-lucide="github" class="w-5 h-5"></i>
+                                    Source Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content-detailed">
+                        <h3 class="text-xl font-semibold mb-3">Web Automation: CI/CD Pipeline </h3>
+                        <p class="text-gray-300 mb-4">This project demonstrates automated UI testing using Selenium +
+                            Java + TestNG. It is integrated with GitHub
+                            Actions to automatically run tests on every push to the main branch.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag">Selenium</span>
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">TestNG</span>
+                            <span class="tech-tag">Jenkins</span>
+                        </div>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <span class="stat-number">30 min</span>
+                                <span class="stat-label">Deploy Time</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">89.9%</span>
+                                <span class="stat-label">Uptime</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Full Stack Project 1 -->
+                <div class="project-card-detailed" data-category="fullstack" data-aos="fade-up" data-aos-delay="500">
+                    <div class="project-image-detailed">
+                        <!-- Image Placeholder - Replace with actual project image -->
+                        <img src="https://nishirajmane.netlify.app/assets/playbot.jpg" alt="E-Commerce Platform"
+                            class="w-full h-full object-cover">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link-btn">
+                                    <i data-lucide="external-link" class="w-5 h-5"></i>
+                                    Live Demo
+                                </a>
+                                <a href="#" class="project-link-btn">
+                                    <i data-lucide="github" class="w-5 h-5"></i>
+                                    Source Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content-detailed">
+                        <h3 class="text-xl font-semibold mb-3">PlayBot: AI Regression Suite</h3>
+                        <p class="text-gray-300 mb-4">CI/CD-integrated Playwright test suite with visual diffing, API/UI
+                            tests, and snapshot validation. AI-classifier auto-sorts failures.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag">Playwright</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Postman</span>
+                            <span class="tech-tag">XML</span>
+                        </div>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <span class="stat-number">78%</span>
+                                <span class="stat-label">Accuracy</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">50+</span>
+                                <span class="stat-label">Tests</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Full Stack Project 2 -->
+                <div class="project-card-detailed" data-category="fullstack" data-aos="fade-up" data-aos-delay="600">
+                    <div class="project-image-detailed">
+                        <!-- Image Placeholder - Replace with actual project image -->
+                        <img src="https://i.pinimg.com/736x/aa/1e/5c/aa1e5c46aaebf5b21cadde38a1a26afb.jpg"
+                            alt="Project Management System" class="w-full h-full object-cover">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link-btn">
+                                    <i data-lucide="external-link" class="w-5 h-5"></i>
+                                    Live Demo
+                                </a>
+                                <a href="#" class="project-link-btn">
+                                    <i data-lucide="github" class="w-5 h-5"></i>
+                                    Source Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content-detailed">
+                        <h3 class="text-xl font-semibold mb-3">Personal Website</h3>
+                        <p class="text-gray-300 mb-4">This is my personal website that I built using HTML, CSS, and
+                            JavaScript.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Tailwind CSS</span>
+                        </div>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <span class="stat-number">100%</span>
+                                <span class="stat-label">Creativity</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">4+</span>
+                                <span class="stat-label">Ratings</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20 relative">
+        <div class="container mx-auto px-6 text-center">
+            <div class="glass-card p-12 max-w-4xl mx-auto" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-orbitron font-bold mb-6 text-blue-400">
+                    Ready to Build Something Amazing?
+                </h2>
+                <p class="text-xl text-gray-300 mb-8 font-poppins">
+                    Let's collaborate on your next project. I'm here to help you create innovative solutions that drive
+                    business growth.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="index.html#contact" class="cta-button primary">
+                        <i data-lucide="mail" class="w-5 h-5 mr-2"></i>
+                        Get In Touch
+                    </a>
+                    <a href="index.html" class="cta-button secondary">
+                        <i data-lucide="arrow-left" class="w-5 h-5 mr-2"></i>
+                        Back to Home
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-gray-800">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="#" class="social-link">
+                    <i data-lucide="github" class="w-6 h-6"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i data-lucide="linkedin" class="w-6 h-6"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i data-lucide="twitter" class="w-6 h-6"></i>
+                </a>
+            </div>
+            <p class="text-gray-400 font-poppins">
+                © 2025 Designed and Developed by Nishiraj Mane
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="projects.js"></script>
+    <script src="debug.js"></script>
+</body>
+
+</html>
