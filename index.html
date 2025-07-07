@@ -60,6 +60,7 @@
                     <a href="#about" class="nav-link">About</a>
                     <a href="#projects" class="nav-link">Projects</a>
                     <a href="#skills" class="nav-link">Skills</a>
+                    <a href="education.html" class="nav-link">Education</a>
                     <a href="#contact" class="nav-link">Contact</a>
                 </div>
                 <div class="md:hidden">
@@ -73,11 +74,18 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu"
             class="md:hidden fixed inset-0 bg-black bg-opacity-95 z-30 transform translate-x-full transition-transform duration-300">
-            <div class="flex flex-col items-center justify-center h-full space-y-8">
+            <div class="flex flex-col items-center justify-center h-full space-y-8 relative">
+                <!-- Close Button -->
+                <button id="mobile-menu-close"
+                    class="absolute top-8 right-8 text-white hover:text-blue-400 transition-colors duration-300">
+                    <i data-lucide="x" class="w-8 h-8"></i>
+                </button>
+
                 <a href="#home" class="mobile-nav-link">Home</a>
                 <a href="#about" class="mobile-nav-link">About</a>
                 <a href="#projects" class="mobile-nav-link">Projects</a>
                 <a href="#skills" class="mobile-nav-link">Skills</a>
+                <a href="education.html" class="mobile-nav-link">Education</a>
                 <a href="#contact" class="mobile-nav-link">Contact</a>
             </div>
         </div>
@@ -172,57 +180,57 @@
             </h2>
             <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
                 <!-- Backend -->
-                <div class="skill-card" data-aos="zoom-in" data-aos-delay="100">
+                <div class="skill-card" data-aos="zoom-in" data-aos-delay="100" data-tech="python">
                     <i data-lucide="code" class="w-12 h-12 text-blue-400"></i>
                     <h3 class="text-sm font-semibold mt-2">Python</h3>
                 </div>
-                <div class="skill-card" data-aos="zoom-in" data-aos-delay="200">
+                <div class="skill-card" data-aos="zoom-in" data-aos-delay="200" data-tech="java">
                     <i data-lucide="coffee" class="w-12 h-12 text-blue-400"></i>
                     <h3 class="text-sm font-semibold mt-2">Java</h3>
                 </div>
-                <div class="skill-card" data-aos="zoom-in" data-aos-delay="300">
+                <div class="skill-card" data-aos="zoom-in" data-aos-delay="300" data-tech="sql">
                     <i data-lucide="database" class="w-12 h-12 text-blue-400"></i>
                     <h3 class="text-sm font-semibold mt-2">SQL</h3>
                 </div>
 
                 <!-- Frontend -->
-                <div class="skill-card" data-aos="zoom-in" data-aos-delay="400">
+                <div class="skill-card" data-aos="zoom-in" data-aos-delay="400" data-tech="react">
                     <i data-lucide="layout" class="w-12 h-12 text-blue-400"></i>
                     <h3 class="text-sm font-semibold mt-2">React</h3>
                 </div>
-                <div class="skill-card" data-aos="zoom-in" data-aos-delay="500">
+                <div class="skill-card" data-aos="zoom-in" data-aos-delay="500" data-tech="tailwind">
                     <i data-lucide="palette" class="w-12 h-12 text-blue-400"></i>
                     <h3 class="text-sm font-semibold mt-2">Tailwind CSS</h3>
                 </div>
-                <div class="skill-card" data-aos="zoom-in" data-aos-delay="600">
-                    <i data-lucide="zap" class="w-12 h-12 text-blue-400"></i>
-                    <h3 class="text-sm font-semibold mt-2">JavaScript</h3>
+                <div class="skill-card" data-aos="zoom-in" data-aos-delay="600" data-tech="playwright">
+                    <i data-lucide="test-tube" class="w-12 h-12 text-blue-400"></i>
+                    <h3 class="text-sm font-semibold mt-2">Playwright</h3>
                 </div>
 
-                <!-- DevOps -->
-                <div class="skill-card" data-aos="zoom-in" data-aos-delay="700">
-                    <i data-lucide="box" class="w-12 h-12 text-blue-400"></i>
-                    <h3 class="text-sm font-semibold mt-2">Docker</h3>
+                <!-- AI/ML -->
+                <div class="skill-card" data-aos="zoom-in" data-aos-delay="700" data-tech="gpt">
+                    <i data-lucide="bot" class="w-12 h-12 text-blue-400"></i>
+                    <h3 class="text-sm font-semibold mt-2">GPT & AI</h3>
                 </div>
-                <div class="skill-card" data-aos="zoom-in" data-aos-delay="800">
+                <div class="skill-card" data-aos="zoom-in" data-aos-delay="800" data-tech="github-actions">
                     <i data-lucide="git-branch" class="w-12 h-12 text-blue-400"></i>
                     <h3 class="text-sm font-semibold mt-2">GitHub Actions</h3>
                 </div>
-                <div class="skill-card" data-aos="zoom-in" data-aos-delay="900">
+                <div class="skill-card" data-aos="zoom-in" data-aos-delay="900" data-tech="jenkins">
                     <i data-lucide="settings" class="w-12 h-12 text-blue-400"></i>
                     <h3 class="text-sm font-semibold mt-2">Jenkins</h3>
                 </div>
 
                 <!-- AI/ML -->
-                <div class="skill-card" data-aos="zoom-in" data-aos-delay="1000">
+                <div class="skill-card" data-aos="zoom-in" data-aos-delay="1000" data-tech="ai-ml">
                     <i data-lucide="brain" class="w-12 h-12 text-blue-400"></i>
                     <h3 class="text-sm font-semibold mt-2">AI/ML</h3>
                 </div>
-                <div class="skill-card" data-aos="zoom-in" data-aos-delay="1100">
+                <div class="skill-card" data-aos="zoom-in" data-aos-delay="1100" data-tech="selenium">
                     <i data-lucide="test-tube" class="w-12 h-12 text-blue-400"></i>
                     <h3 class="text-sm font-semibold mt-2">Selenium</h3>
                 </div>
-                <div class="skill-card" data-aos="zoom-in" data-aos-delay="1200">
+                <div class="skill-card" data-aos="zoom-in" data-aos-delay="1200" data-tech="devops">
                     <i data-lucide="server" class="w-12 h-12 text-blue-400"></i>
                     <h3 class="text-sm font-semibold mt-2">DevOps</h3>
                 </div>
@@ -394,6 +402,31 @@
             </p>
         </div>
     </footer>
+
+    <!-- Tech Stack Modal -->
+    <div id="tech-modal" class="tech-modal">
+        <div class="tech-modal-content">
+            <div class="tech-modal-header">
+                <div class="tech-modal-title-section">
+                    <div id="modal-icon" class="tech-modal-icon"></div>
+                    <h3 id="modal-title" class="tech-modal-title"></h3>
+                </div>
+                <button id="close-modal" class="tech-modal-close">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+
+            <div id="modal-content" class="tech-modal-body">
+                <!-- Content will be dynamically populated -->
+            </div>
+
+            <div class="tech-modal-footer">
+                <div id="modal-tags" class="tech-modal-tags">
+                    <!-- Tags will be dynamically populated -->
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Scripts -->
     <script src="script.js"></script>

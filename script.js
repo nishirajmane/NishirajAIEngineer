@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
     initializeContactForm();
     initializeIcons();
     initializeAOS();
+    initializeTechModal();
 
     console.log('Portfolio initialization complete');
 });
@@ -51,6 +52,7 @@ function initializeLoadingScreen() {
 function initializeNavigation() {
     const navbar = document.getElementById('navbar');
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenuCloseBtn = document.getElementById('mobile-menu-close');
     const mobileMenu = document.getElementById('mobile-menu');
     const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
 
@@ -70,11 +72,25 @@ function initializeNavigation() {
         });
     }
 
+    // Mobile menu close button
+    if (mobileMenuCloseBtn && mobileMenu) {
+        mobileMenuCloseBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('translate-x-full');
+        });
+    }
+
     // Smooth scrolling for navigation links
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
+            // Check if it's an external link (like education.html)
+            const href = link.getAttribute('href');
+            if (href && !href.startsWith('#')) {
+                // External link - let it navigate normally
+                return;
+            }
+
             e.preventDefault();
-            const targetId = link.getAttribute('href').substring(1);
+            const targetId = href ? href.substring(1) : '';
             const targetSection = document.getElementById(targetId);
 
             if (targetSection) {
@@ -533,4 +549,287 @@ window.addEventListener('load', () => {
     }, 2000);
 });
 
-console.log('Portfolio script loaded successfully'); 
+console.log('Portfolio script loaded successfully');
+
+// Tech Stack Modal Functionality
+function initializeTechModal() {
+    const modal = document.getElementById('tech-modal');
+    const modalContent = document.querySelector('.tech-modal-content');
+    const closeBtn = document.getElementById('close-modal');
+    const skillCards = document.querySelectorAll('.skill-card');
+
+    // Tech stack data
+    const techData = {
+        python: {
+            title: 'Python',
+            icon: 'code',
+            description: 'Versatile programming language for AI/ML, automation, and web development.',
+            experience: 'Advanced',
+            proficiency: 95,
+            details: [
+                'AI/ML Development with TensorFlow, PyTorch, and scikit-learn',
+                'Web Development with Django and Flask',
+                'Automation scripting and API development',
+                'Data analysis and visualization with pandas, numpy, matplotlib',
+                'Test automation with pytest and unittest'
+            ],
+            tags: ['AI/ML', 'Web Development', 'Automation', 'Data Science', 'Testing']
+        },
+        java: {
+            title: 'Java',
+            icon: 'coffee',
+            description: 'Object-oriented programming language for enterprise applications and Android development.',
+            experience: 'Intermediate',
+            proficiency: 80,
+            details: [
+                'Enterprise application development with Spring Boot',
+                'Android mobile app development',
+                'RESTful API development and microservices',
+                'Database connectivity with JDBC and JPA',
+                'Test automation with Selenium WebDriver'
+            ],
+            tags: ['Enterprise', 'Android', 'Spring Boot', 'Microservices', 'Testing']
+        },
+        sql: {
+            title: 'SQL',
+            icon: 'database',
+            description: 'Structured Query Language for database management and data manipulation.',
+            experience: 'Advanced',
+            proficiency: 90,
+            details: [
+                'Database design and optimization',
+                'Complex queries and stored procedures',
+                'Data migration and ETL processes',
+                'Performance tuning and indexing',
+                'Integration with various database systems (MySQL, PostgreSQL, Oracle)'
+            ],
+            tags: ['Database Design', 'Query Optimization', 'ETL', 'Performance Tuning']
+        },
+        react: {
+            title: 'React',
+            icon: 'layout',
+            description: 'JavaScript library for building user interfaces and single-page applications.',
+            experience: 'Intermediate',
+            proficiency: 85,
+            details: [
+                'Component-based architecture and state management',
+                'Hooks and functional components',
+                'Integration with REST APIs and GraphQL',
+                'Performance optimization and code splitting',
+                'Testing with Jest and React Testing Library'
+            ],
+            tags: ['Frontend', 'Components', 'State Management', 'Testing']
+        },
+        tailwind: {
+            title: 'Tailwind CSS',
+            icon: 'palette',
+            description: 'Utility-first CSS framework for rapid UI development.',
+            experience: 'Advanced',
+            proficiency: 90,
+            details: [
+                'Responsive design and mobile-first approach',
+                'Custom component development',
+                'Theme customization and dark mode',
+                'Performance optimization with PurgeCSS',
+                'Integration with various frameworks'
+            ],
+            tags: ['CSS Framework', 'Responsive Design', 'Utility Classes', 'Styling']
+        },
+        playwright: {
+            title: 'Playwright',
+            icon: 'test-tube',
+            description: 'Modern web automation framework for reliable end-to-end testing across multiple browsers.',
+            experience: 'Advanced',
+            proficiency: 92,
+            details: [
+                'Cross-browser automation (Chromium, Firefox, Safari)',
+                'Visual regression testing and screenshot comparison',
+                'API testing and mocking capabilities',
+                'Parallel test execution and reporting',
+                'Integration with CI/CD pipelines and GitHub Actions'
+            ],
+            tags: ['Test Automation', 'Cross-browser', 'Visual Testing', 'CI/CD']
+        },
+        gpt: {
+            title: 'GPT & AI Integration',
+            icon: 'bot',
+            description: 'Advanced AI language models and integration for intelligent applications and automation.',
+            experience: 'Advanced',
+            proficiency: 88,
+            details: [
+                'OpenAI GPT API integration and prompt engineering',
+                'Custom AI chatbot development and fine-tuning',
+                'Natural language processing and text generation',
+                'AI-powered automation and workflow optimization',
+                'Integration with existing applications and APIs'
+            ],
+            tags: ['AI Integration', 'GPT API', 'Chatbots', 'NLP', 'Automation']
+        },
+        'github-actions': {
+            title: 'GitHub Actions',
+            icon: 'git-branch',
+            description: 'Automated CI/CD platform for software development workflows.',
+            experience: 'Intermediate',
+            proficiency: 80,
+            details: [
+                'Automated testing and deployment pipelines',
+                'Multi-environment deployment strategies',
+                'Security scanning and code quality checks',
+                'Integration with cloud platforms',
+                'Workflow optimization and caching'
+            ],
+            tags: ['CI/CD', 'Automation', 'DevOps', 'GitHub']
+        },
+        jenkins: {
+            title: 'Jenkins',
+            icon: 'settings',
+            description: 'Open-source automation server for building, testing, and deploying software.',
+            experience: 'Intermediate',
+            proficiency: 70,
+            details: [
+                'Pipeline as Code with Jenkinsfile',
+                'Multi-branch pipeline configuration',
+                'Plugin management and customization',
+                'Integration with various tools and platforms',
+                'Monitoring and alerting setup'
+            ],
+            tags: ['CI/CD', 'Automation', 'Pipelines', 'DevOps']
+        },
+        'ai-ml': {
+            title: 'AI/ML',
+            icon: 'brain',
+            description: 'Artificial Intelligence and Machine Learning technologies and frameworks.',
+            experience: 'Advanced',
+            proficiency: 85,
+            details: [
+                'Deep learning with TensorFlow and PyTorch',
+                'Natural Language Processing (NLP)',
+                'Computer Vision and image processing',
+                'Model training, validation, and deployment',
+                'MLOps and model lifecycle management'
+            ],
+            tags: ['Deep Learning', 'NLP', 'Computer Vision', 'MLOps']
+        },
+        selenium: {
+            title: 'Selenium',
+            icon: 'test-tube',
+            description: 'Web automation framework for testing and browser automation.',
+            experience: 'Advanced',
+            proficiency: 90,
+            details: [
+                'WebDriver automation and cross-browser testing',
+                'Page Object Model (POM) design pattern',
+                'Test framework development and maintenance',
+                'Parallel test execution and reporting',
+                'Integration with CI/CD pipelines'
+            ],
+            tags: ['Test Automation', 'WebDriver', 'Cross-browser', 'CI/CD']
+        },
+        devops: {
+            title: 'DevOps',
+            icon: 'server',
+            description: 'Software development practices combining development and operations.',
+            experience: 'Intermediate',
+            proficiency: 75,
+            details: [
+                'CI/CD pipeline design and implementation',
+                'Infrastructure as Code (IaC) with Terraform',
+                'Cloud platform management (AWS, Azure, GCP)',
+                'Monitoring and logging with ELK stack',
+                'Security and compliance automation'
+            ],
+            tags: ['CI/CD', 'IaC', 'Cloud', 'Monitoring', 'Security']
+        }
+    };
+
+    // Function to show modal
+    function showModal(techKey) {
+        const tech = techData[techKey];
+        if (!tech) return;
+
+        // Update modal content
+        document.getElementById('modal-title').textContent = tech.title;
+        document.getElementById('modal-icon').innerHTML = `<i data-lucide="${tech.icon}" class="w-8 h-8"></i>`;
+
+        const content = document.getElementById('modal-content');
+        content.innerHTML = `
+            <div class="modal-section">
+                <h4>Description</h4>
+                <p class="text-gray-300">${tech.description}</p>
+            </div>
+            
+            <div class="modal-section">
+                <h4>Experience Level</h4>
+                <p class="text-gray-300">${tech.experience}</p>
+                <div class="modal-progress">
+                    <div class="modal-progress-bar" style="width: ${tech.proficiency}%"></div>
+                </div>
+                <p class="text-sm text-gray-400 mt-2">${tech.proficiency}% Proficiency</p>
+            </div>
+            
+            <div class="modal-section">
+                <h4>Key Skills & Expertise</h4>
+                <ul class="text-gray-300 space-y-2">
+                    ${tech.details.map(detail => `<li class="flex items-start">
+                        <span class="text-blue-400 mr-2">•</span>
+                        ${detail}
+                    </li>`).join('')}
+                </ul>
+            </div>
+        `;
+
+        const tags = document.getElementById('modal-tags');
+        tags.innerHTML = tech.tags.map(tag => `<span class="modal-tag">${tag}</span>`).join('');
+
+        // Show modal with animation
+        modal.classList.add('show');
+        setTimeout(() => {
+            modalContent.classList.add('show');
+        }, 10);
+
+        // Reinitialize icons
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+    }
+
+    // Function to hide modal
+    function hideModal() {
+        modalContent.classList.remove('show');
+        setTimeout(() => {
+            modal.classList.remove('show');
+        }, 300);
+    }
+
+    // Event listeners
+    skillCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const techKey = card.getAttribute('data-tech');
+            if (techKey) {
+                showModal(techKey);
+            }
+        });
+    });
+
+    // Close modal events
+    if (closeBtn) {
+        closeBtn.addEventListener('click', hideModal);
+    }
+
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                hideModal();
+            }
+        });
+    }
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('show')) {
+            hideModal();
+        }
+    });
+
+    console.log('Tech modal initialized successfully');
+} 
