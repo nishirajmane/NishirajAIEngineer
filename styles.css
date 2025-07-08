@@ -1066,43 +1066,50 @@ textarea:focus {
 
 /* Tech Stack Modal Styles */
 .tech-modal {
+    display: none;
     position: fixed;
-    top: 0;
+    z-index: 50;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(10px);
-    z-index: 1000;
-    display: flex;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
     align-items: center;
     justify-content: center;
+    transition: opacity 0.4s cubic-bezier(.4, 0, .2, 1);
     opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
 }
 
 .tech-modal.show {
+    display: flex;
     opacity: 1;
-    visibility: visible;
 }
 
 .tech-modal-content {
-    background: rgba(15, 15, 15, 0.95);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(13, 110, 253, 0.3);
-    border-radius: 20px;
-    max-width: 600px;
-    width: 90%;
-    max-height: 80vh;
+    background: rgba(30, 32, 40, 0.98);
+    border-radius: 18px;
+    box-shadow: 0 8px 40px rgba(13, 110, 253, 0.18);
+    padding: 2.5rem 2rem;
+    min-width: 320px;
+    max-width: 95vw;
+    max-height: 90vh;
     overflow-y: auto;
-    transform: scale(0.8) translateY(50px);
-    transition: all 0.3s ease;
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    transform: scale(0.92) translateY(40px);
+    opacity: 0;
+    transition: opacity 0.4s cubic-bezier(.4, 0, .2, 1), transform 0.4s cubic-bezier(.4, 0, .2, 1);
 }
 
+.tech-modal.show .tech-modal-content,
 .tech-modal-content.show {
+    opacity: 1;
     transform: scale(1) translateY(0);
+}
+
+@media (max-width: 600px) {
+    .tech-modal-content {
+        padding: 1.2rem 0.5rem;
+        min-width: 90vw;
+    }
 }
 
 .tech-modal-header {
@@ -1353,9 +1360,10 @@ textarea:focus {
 }
 
 /* Education Timeline Styles */
+/* --- Timeline Layout Fix: No Overlap, Centered Line, Connectors --- */
 .education-timeline {
     position: relative;
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 2rem 0;
 }
@@ -1369,13 +1377,26 @@ textarea:focus {
     width: 2px;
     background: linear-gradient(135deg, #0d6efd 0%, #6f42c1 100%);
     transform: translateX(-50%);
+    z-index: 0;
 }
 
 .timeline-item {
     position: relative;
-    margin-bottom: 3rem;
     display: flex;
+    justify-content: flex-start;
     align-items: center;
+    min-height: 220px;
+    margin-bottom: 3rem;
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(40px) scale(0.98);
+    transition: opacity 0.6s cubic-bezier(.4, 0, .2, 1), transform 0.6s cubic-bezier(.4, 0, .2, 1);
+}
+
+.timeline-item[data-aos],
+.timeline-item.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
 }
 
 .timeline-item:nth-child(odd) {
@@ -1387,9 +1408,16 @@ textarea:focus {
 }
 
 .timeline-marker {
-    position: relative;
-    z-index: 10;
-    flex-shrink: 0;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
 }
 
 .timeline-dot {
@@ -1400,22 +1428,93 @@ textarea:focus {
     border: 4px solid rgba(15, 15, 15, 0.95);
     box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.3);
     animation: pulse 2s infinite;
+    z-index: 3;
 }
 
 .timeline-line {
+    display: none;
+    /* Hide the old vertical line inside items */
+}
+
+/* Horizontal connector from center line to card */
+.timeline-connector {
     position: absolute;
-    top: 20px;
+    top: 50%;
+    width: 50px;
+    height: 2px;
+    background: linear-gradient(90deg, #0d6efd 0%, #6f42c1 100%);
+    z-index: 1;
+}
+
+.timeline-item:nth-child(odd) .timeline-connector {
     left: 50%;
-    width: 2px;
-    height: calc(100% + 3rem);
-    background: linear-gradient(135deg, #0d6efd 0%, #6f42c1 100%);
-    transform: translateX(-50%);
+    transform: translateY(-50%);
+}
+
+.timeline-item:nth-child(even) .timeline-connector {
+    right: 50%;
+    transform: translateY(-50%) scaleX(-1);
 }
 
 .timeline-content {
-    flex: 1;
-    margin: 0 2rem;
-    max-width: 400px;
+    position: relative;
+    flex: 0 0 48%;
+    max-width: 48%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    z-index: 2;
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+    margin-left: 60px;
+    justify-content: flex-start;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+    margin-right: 60px;
+    justify-content: flex-end;
+}
+
+@media (max-width: 900px) {
+    .timeline-content {
+        max-width: 90%;
+        flex-basis: 90%;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content,
+    .timeline-item:nth-child(even) .timeline-content {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .education-timeline::before {
+        left: 12px;
+    }
+
+    .timeline-item {
+        flex-direction: row !important;
+        min-height: 160px;
+    }
+
+    .timeline-marker {
+        left: 12px;
+        transform: translateY(-50%);
+    }
+
+    .timeline-content {
+        max-width: 90%;
+        flex-basis: 90%;
+        margin-left: 32px !important;
+        margin-right: 0 !important;
+    }
+
+    .timeline-connector {
+        left: 12px;
+        width: 32px;
+    }
 }
 
 /* Certification Cards */
@@ -1492,32 +1591,4 @@ textarea:focus {
     font-size: 0.75rem;
     font-weight: 500;
     border: 1px solid rgba(13, 110, 253, 0.3);
-}
-
-/* Responsive Timeline */
-@media (max-width: 768px) {
-    .education-timeline::before {
-        left: 2rem;
-    }
-
-    .timeline-item {
-        flex-direction: row !important;
-        margin-left: 2rem;
-    }
-
-    .timeline-content {
-        margin-left: 2rem;
-        margin-right: 0;
-        max-width: none;
-    }
-
-    .timeline-marker {
-        position: absolute;
-        left: -2rem;
-    }
-
-    .timeline-line {
-        left: 2rem;
-        transform: none;
-    }
 }

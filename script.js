@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
     initializeIcons();
     initializeAOS();
     initializeTechModal();
+    initializeTimelineObserver();
 
     console.log('Portfolio initialization complete');
 });
@@ -390,9 +391,8 @@ function initializeAOS() {
                 AOS.init({
                     duration: 800,
                     easing: 'ease-in-out',
-                    once: true,
-                    offset: 100,
-                    disable: 'mobile' // Disable on mobile for better performance
+                    once: false,
+                    offset: 100
                 });
                 console.log('AOS initialized successfully');
             } catch (error) {
@@ -832,4 +832,22 @@ function initializeTechModal() {
     });
 
     console.log('Tech modal initialized successfully');
+}
+
+// Custom Intersection Observer for timeline-item transitions
+function initializeTimelineObserver() {
+    const items = document.querySelectorAll('.timeline-item');
+    if (!items.length) return;
+    const observer = new window.IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            } else {
+                entry.target.classList.remove('visible');
+            }
+        });
+    }, {
+        threshold: 0.2
+    });
+    items.forEach(item => observer.observe(item));
 } 
